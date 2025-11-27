@@ -1,0 +1,15 @@
+{
+  "name": "technician-desktop",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "electron": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^27.3.11"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.4.6"
+  }
+}
