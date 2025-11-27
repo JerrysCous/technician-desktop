@@ -87,6 +87,23 @@ ipcMain.handle("get-jobs", () => {
   return db.prepare("SELECT * FROM jobs").all();
 });
 
+
+// Update job status
+ipcMain.handle("update-job-status", (event, data) => {
+  const stmt = db.prepare(`
+    UPDATE jobs SET status = @status WHERE id = @id
+  `);
+  stmt.run(data);
+  return { success: true };
+});
+
+// Delete job
+ipcMain.handle("delete-job", (event, id) => {
+  const stmt = db.prepare(`DELETE FROM jobs WHERE id = ?`);
+  stmt.run(id);
+  return { success: true };
+});
+
 // Set admin password (first time setup)
 ipcMain.handle("set-password", (event, password) => {
   const hashed = bcrypt.hashSync(password, 10);

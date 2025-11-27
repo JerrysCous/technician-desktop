@@ -8,6 +8,7 @@ import Customers from "./pages/Customers";
 import AddJob from "./pages/AddJob";
 import Jobs from "./pages/Jobs";
 import Settings from "./pages/Settings";
+import JobDetails from "./pages/JobDetails";
 
 export default function App() {
   const [password, setPassword] = useState("");
@@ -82,6 +83,7 @@ export default function App() {
             <Route path="/add-job" element={<AddJob />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/settings" element={<Settings />} />
+	<Route path="/job/:id" element={<JobDetails />} />
           </Routes>
         </div>
       </div>

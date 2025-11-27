@@ -1,3 +1,4 @@
+// preload.js
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("api", {
@@ -12,6 +13,8 @@ contextBridge.exposeInMainWorld("api", {
   // --------------------
   addJob: (job) => ipcRenderer.invoke("add-job", job),
   getJobs: () => ipcRenderer.invoke("get-jobs"),
+  updateJobStatus: (data) => ipcRenderer.invoke("update-job-status", data),
+  deleteJob: (id) => ipcRenderer.invoke("delete-job", id),
 
   // --------------------
   // Admin Password / Login
